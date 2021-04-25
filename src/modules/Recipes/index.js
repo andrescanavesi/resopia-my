@@ -4,7 +4,7 @@ import {Table} from "react-bootstrap";
 const Recipes = () => (
     <div>
         <h1>Recipes</h1>
-        <Table striped bordered hover>
+        <Table striped bordered hover responsive>
             <thead>
             <tr>
                 <th>#</th>
