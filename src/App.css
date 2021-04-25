@@ -6,6 +6,10 @@
   padding: 0px 10px;
 }
 
+.App-footer{
+  color: rgba(255, 255, 255, .5);
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;

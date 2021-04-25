@@ -12,7 +12,7 @@ function App() {
       <Router>
           <div className="App">
             <header className="App-header">
-                <Navbar bg="light" expand="lg">
+                <Navbar bg="dark"  expand="lg" variant="dark">
                     <Navbar.Brand href="#home">My Resopia</Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
@@ -36,7 +36,7 @@ function App() {
               ))}
             </div>
 
-              <footer>
+              <footer className="App-footer mt-5 py-5 bg-secondary text-center" >
                   Footer
               </footer>
 
