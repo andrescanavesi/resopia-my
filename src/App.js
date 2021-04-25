@@ -1,24 +1,48 @@
-import logo from './logo.svg';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import React from 'react';
 import './App.css';
+import modules from './modules';
+import {useState} from "react";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import {Nav, Navbar, NavDropdown, Form, FormControl, Button} from "react-bootstrap";
 
 function App() {
+  const [currentTab, setCurrentTab] = useState('recipes');
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <Router>
+          <div className="App">
+            <header className="App-header">
+                <Navbar bg="light" expand="lg">
+                    <Navbar.Brand href="#home">My Resopia</Navbar.Brand>
+                    <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                    <Navbar.Collapse id="basic-navbar-nav">
+                        <Nav className="mr-auto">
+                            {modules.map(module => ( // with a name, and routes
+                                    <Nav.Link key={module.name} href={module.routeProps.path} onClick={() => setCurrentTab(module.name)}>{module.name}</Nav.Link>
+                            ))}
+
+                        </Nav>
+                        <Form inline>
+                            <FormControl type="text" placeholder="Search" className="mr-sm-2" />
+                            <Button variant="outline-success">Search</Button>
+                        </Form>
+                    </Navbar.Collapse>
+                </Navbar>
+
+            </header>
+            <div className="App-content">
+              {modules.map(module => (
+                  <Route {...module.routeProps} key={module.name} />
+              ))}
+            </div>
+
+              <footer>
+                  Footer
+              </footer>
+
+
+          </div>
+        </Router>
   );
 }
 
