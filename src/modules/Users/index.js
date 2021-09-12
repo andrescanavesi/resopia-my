@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {Table} from "react-bootstrap";
 import axios from "axios";
+import {Nav, Navbar, NavDropdown, Form, FormControl, Button} from "react-bootstrap";
 
 const Users = () => {
 
@@ -47,7 +48,7 @@ const Users = () => {
                         <td>{item.id}</td>
                         <td>{item.name}</td>
                         <td>{item.email}</td>
-                        <td>Edit</td>
+                        <td><Nav.Link href={`/recipe/edit/${item.id}`} >Edit</Nav.Link></td>
                     </tr>
 
                 ))}
